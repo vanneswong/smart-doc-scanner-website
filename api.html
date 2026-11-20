@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>HTTP API - 智能文档扫描 Smart Document Scanner</title>
+  <meta name="description" content="智能文档扫描的 HTTP API 文档：/api/detect 检测纸张四角、/api/process 生成扫描件、/api/pdf 多页 PDF、/api/zip 图片打包，以及 /healthz 健康检查。">
+  <meta name="keywords" content="HTTP API,文档扫描API,FastAPI,OpenAPI,detect,process,pdf,zip,healthz">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="vanneseong">
+  <link rel="canonical" href="https://vanneswong.github.io/smart-doc-scanner-website/api.html">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
+  <meta property="og:title" content="HTTP API - 智能文档扫描 Smart Document Scanner">
+  <meta property="og:description" content="完整、可编程的 HTTP API：检测纸张四角、生成扫描件、多页 PDF、图片打包与健康检查。">
+  <meta property="og:url" content="https://vanneswong.github.io/smart-doc-scanner-website/api.html">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTTP API - 智能文档扫描 Smart Document Scanner">
+  <meta name="twitter:description" content="完整、可编程的 HTTP API：检测纸张四角、生成扫描件、多页 PDF、图片打包与健康检查。">
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vanneswong.github.io/smart-doc-scanner-website/api.html#webpage",
+        "url": "https://vanneswong.github.io/smart-doc-scanner-website/api.html",
+        "name": "HTTP API - 智能文档扫描 Smart Document Scanner",
+        "description": "完整、可编程的 HTTP API：检测纸张四角、生成扫描件、多页 PDF、图片打包与健康检查。",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "https://vanneswong.github.io/smart-doc-scanner-website/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://vanneswong.github.io/smart-doc-scanner-website/" },
+          { "@type": "ListItem", "position": 2, "name": "HTTP API", "item": "https://vanneswong.github.io/smart-doc-scanner-website/api.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================= Nav ======================= -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html" class="active" aria-current="page">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <a class="btn small ghost" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= Page Hero ======================= -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span class="sep">/</span><span>HTTP API</span>
+        </nav>
+        <h1>HTTP API</h1>
+        <p class="lead">完整、可编程的接口。启动后可在 <code>/docs</code> 查看交互式 OpenAPI 文档。</p>
+      </div>
+    </section>
+
+    <!-- ======================= API ======================= -->
+    <section class="section" id="api">
+      <div class="api-grid">
+        <article class="card api">
+          <div class="api-method">POST</div>
+          <h3>/api/detect</h3>
+          <p>上传图片，返回任务 ID 与自动检测到的纸张四角坐标。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">POST</div>
+          <h3>/api/redetect</h3>
+          <p>对同一张原图重新运行边缘检测。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">POST</div>
+          <h3>/api/process</h3>
+          <p>按四角、纸张、DPI、色彩模式与增强参数生成扫描件，支持快速预览。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">POST</div>
+          <h3>/api/pdf</h3>
+          <p>将多个结果按纸张尺寸排版合并为多页 PDF。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">POST</div>
+          <h3>/api/zip</h3>
+          <p>多页结果一键打包 ZIP，彩色 / 灰度为 JPG、黑白为 PNG。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">GET</div>
+          <h3>/healthz</h3>
+          <p>健康检查，配合 Docker / 反向代理探活。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">GET</div>
+          <h3>/files/{id}</h3>
+          <p>读取临时原图与结果文件。</p>
+        </article>
+        <article class="card api">
+          <div class="api-method">GET</div>
+          <h3>/docs</h3>
+          <p>OpenAPI 交互式文档，可在线调试所有接口。</p>
+        </article>
+      </div>
+
+      <div class="section-more">
+        <a class="btn ghost" href="deploy.html">查看部署方式</a>
+      </div>
+    </section>
+
+    <!-- ======================= CTA ======================= -->
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>让每一张照片，都成为一份正式文档</h2>
+        <p>开源 · 自托管 · 隐私安全。克隆仓库，即刻开始。</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">访问 GitHub</a>
+          <a class="btn ghost on-dark" href="deploy.html">查看部署方式</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= Footer ======================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <p>OpenCV 边缘检测 · 透视变换 · 自适应阈值 · 所有图片仅在本机临时保存</p>
+      <p class="copyright">
+        © 2026 <a href="https://github.com/vanneswong" target="_blank" rel="noopener">vanneseong</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/vanneswong" target="_blank" rel="noopener">https://github.com/vanneswong</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

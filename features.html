@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>核心功能 - 智能文档扫描 Smart Document Scanner</title>
+  <meta name="description" content="智能文档扫描的 14 项核心能力：自动找边、手动校正、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、去噪、锐化、色彩模式、纸张尺寸、多页 PDF 与图片导出。">
+  <meta name="keywords" content="文档扫描功能,自动找边,透视校正,去阴影,去彩色手写,白平衡,CLAHE,背景纯白,去噪,锐化,纸张尺寸,多页PDF,图片导出">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="vanneseong">
+  <link rel="canonical" href="https://vanneswong.github.io/smart-doc-scanner-website/features.html">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
+  <meta property="og:title" content="核心功能 - 智能文档扫描 Smart Document Scanner">
+  <meta property="og:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、多页 PDF 与图片导出。">
+  <meta property="og:url" content="https://vanneswong.github.io/smart-doc-scanner-website/features.html">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="核心功能 - 智能文档扫描 Smart Document Scanner">
+  <meta name="twitter:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、多页 PDF 与图片导出。">
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vanneswong.github.io/smart-doc-scanner-website/features.html#webpage",
+        "url": "https://vanneswong.github.io/smart-doc-scanner-website/features.html",
+        "name": "核心功能 - 智能文档扫描 Smart Document Scanner",
+        "description": "14 项图像增强能力：自动找边、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、多页 PDF 与图片导出。",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "https://vanneswong.github.io/smart-doc-scanner-website/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://vanneswong.github.io/smart-doc-scanner-website/" },
+          { "@type": "ListItem", "position": 2, "name": "核心功能", "item": "https://vanneswong.github.io/smart-doc-scanner-website/features.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================= Nav ======================= -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="features.html" class="active" aria-current="page">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <a class="btn small ghost" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= Page Hero ======================= -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span class="sep">/</span><span>核心功能</span>
+        </nav>
+        <h1>核心功能</h1>
+        <p class="lead">一条完整的图像处理管线，把手机镜头下的褶皱、阴影、偏色与笔迹，转化为干净、标准的文档页面。</p>
+      </div>
+    </section>
+
+    <!-- ======================= Features ======================= -->
+    <section class="section" id="features">
+      <div class="features-grid">
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M7 12h10M9 9h6M9 15h6"/></svg>
+          </div>
+          <h3>自动找边</h3>
+          <p>Canny 多阈值 + 形态学梯度 + 亮纸掩膜。整张照片几乎都是纸面时自动回退整图，避免把表格或文字块误裁成纸张。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>手动校正</h3>
+          <p>识别不准时，在网页上直接拖动四个角点，贴合纸张边缘，实时重新预览最终效果。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l7 7M20 4l-7 7M4 20l7-7M20 20l-7-7"/></svg>
+          </div>
+          <h3>透视校正</h3>
+          <p><code>cv2.getPerspectiveTransform</code> + 三次插值，把梯形、倾斜纸张摊平成标准矩形，同时完成去歪斜。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg>
+          </div>
+          <h3>方向与旋转</h3>
+          <p>按纸张比例自动判断横 / 纵向，并支持输出旋转 0° / 90° / 180° / 270° 校正文字方向。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+          </div>
+          <h3>去阴影</h3>
+          <p>局部闭运算估计纸面亮度 + 20×20 网格逐通道白平衡，压制手影、弯曲纸张、渐变阴影与彩色灯光。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19c4-2 6-6 9-6s5 4 9 6"/><path d="M3 5l4 6c1-2 2-3 4-3s3 1 4 3l4-6"/></svg>
+          </div>
+          <h3>去彩色手写</h3>
+          <p>局部色度 top-hat 检测红 / 蓝笔迹，按亮度阈值擦除笔迹，同时尽量保留被覆盖的印刷文字；印章、彩色 logo 等紧凑色块自动保留。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 0 0 20M12 2a15 15 0 0 1 0 20M2 12h20"/></svg>
+          </div>
+          <h3>白平衡</h3>
+          <p>以纸面高光为白点做白平衡，校正室内灯光与色温造成的整体偏色。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 12h16M4 16h16"/><circle cx="8" cy="8" r="1.5"/><circle cx="16" cy="12" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg>
+          </div>
+          <h3>CLAHE 对比度增强</h3>
+          <p>在 LAB-L 通道做限制对比度自适应直方图均衡，找回浅色文字与褪色笔画。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16M12 4v16"/></svg>
+          </div>
+          <h3>背景纯白</h3>
+          <p>每个局部区域独立把纸面拉到纯白，同时保留文字、铅笔和印章颜色，接近扫描仪的纸白效果。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="1.4"/><circle cx="14" cy="12" r="1.4"/><circle cx="10" cy="18" r="1.4"/></svg>
+          </div>
+          <h3>去噪</h3>
+          <p>双边滤波三档强度；黑白模式额外做强边缘保护降噪，避免纸纹与 JPEG 噪点变成黑点。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg>
+          </div>
+          <h3>锐化</h3>
+          <p>反锐化掩模，强度 0–100 可调，让文字边缘清晰锐利而不显生硬。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20M12 2a10 10 0 0 0 0 20"/></svg>
+          </div>
+          <h3>色彩模式</h3>
+          <p>彩色 / 灰度 / 黑白三种输出。黑白模式使用强双边滤波 + 自适应阈值 + 中值滤波 + 连通域小噪点清理。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 4v5M17 4v5"/></svg>
+          </div>
+          <h3>纸张尺寸</h3>
+          <p>A4 默认 300 DPI（2480 × 3508）、A5、A3、Letter、Legal、自动尺寸与自定义毫米尺寸（20–2000 mm）。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+          </div>
+          <h3>多页 PDF 导出</h3>
+          <p>页面按纸张尺寸排版，自动处理横 / 纵向；彩色 / 灰度用 JPEG 直嵌，黑白用 1-bit Flate 压缩。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+          </div>
+          <h3>图片导出</h3>
+          <p>单页直接下载 JPEG（彩色 / 灰度）或 PNG（黑白）；多页一键打包为 ZIP，按页顺序命名。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= Paper ======================= -->
+    <section class="section section-tint" id="paper">
+      <div class="section-head">
+        <span class="eyebrow">纸张尺寸</span>
+        <h2>标准尺寸，扫描即所得</h2>
+        <p>默认 A4 · 300 DPI，像素输出精准对应物理纸张。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>选项</th><th>300 DPI 像素（纵向）</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>A4</strong>（默认）</td><td>2480 × 3508</td><td>210 × 297 mm</td></tr>
+            <tr><td><strong>A5</strong></td><td>1748 × 2480</td><td>148 × 210 mm</td></tr>
+            <tr><td><strong>A3</strong></td><td>3508 × 4961</td><td>297 × 420 mm</td></tr>
+            <tr><td><strong>Letter</strong></td><td>2550 × 3300</td><td>8.5 × 11 in</td></tr>
+            <tr><td><strong>Legal</strong></td><td>2550 × 4200</td><td>8.5 × 14 in</td></tr>
+            <tr><td><strong>自动尺寸</strong></td><td>按检测比例</td><td>不拉伸，保持拍摄比例</td></tr>
+            <tr><td><strong>自定义</strong></td><td>按 DPI 换算</td><td>宽 / 高 20–2000 mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======================= CTA ======================= -->
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>让每一张照片，都成为一份正式文档</h2>
+        <p>开源 · 自托管 · 隐私安全。克隆仓库，即刻开始。</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">访问 GitHub</a>
+          <a class="btn ghost on-dark" href="deploy.html">查看部署方式</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= Footer ======================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <p>OpenCV 边缘检测 · 透视变换 · 自适应阈值 · 所有图片仅在本机临时保存</p>
+      <p class="copyright">
+        © 2026 <a href="https://github.com/vanneswong" target="_blank" rel="noopener">vanneseong</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/vanneswong" target="_blank" rel="noopener">https://github.com/vanneswong</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

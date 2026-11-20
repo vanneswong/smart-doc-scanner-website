@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>处理管线与技术栈 - 智能文档扫描 Smart Document Scanner</title>
+  <meta name="description" content="智能文档扫描的端到端处理管线：输入修正、自动找边、透视变换、增强链路与模式输出，以及「两层估计」去阴影策略和 Python + FastAPI + OpenCV 技术栈。">
+  <meta name="keywords" content="图像处理管线,透视变换,去阴影算法,闭运算,网格白平衡,FastAPI,OpenCV,Docker,自托管">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="vanneseong">
+  <link rel="canonical" href="https://vanneswong.github.io/smart-doc-scanner-website/pipeline.html">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
+  <meta property="og:title" content="处理管线与技术栈 - 智能文档扫描 Smart Document Scanner">
+  <meta property="og:description" content="端到端图像处理管线与「两层估计」去阴影策略，基于 Python 3.12 + FastAPI + OpenCV，轻量、自托管、隐私优先。">
+  <meta property="og:url" content="https://vanneswong.github.io/smart-doc-scanner-website/pipeline.html">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="处理管线与技术栈 - 智能文档扫描 Smart Document Scanner">
+  <meta name="twitter:description" content="端到端图像处理管线与「两层估计」去阴影策略，基于 Python 3.12 + FastAPI + OpenCV，轻量、自托管、隐私优先。">
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vanneswong.github.io/smart-doc-scanner-website/pipeline.html#webpage",
+        "url": "https://vanneswong.github.io/smart-doc-scanner-website/pipeline.html",
+        "name": "处理管线与技术栈 - 智能文档扫描 Smart Document Scanner",
+        "description": "端到端图像处理管线与「两层估计」去阴影策略，基于 Python 3.12 + FastAPI + OpenCV，轻量、自托管、隐私优先。",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "https://vanneswong.github.io/smart-doc-scanner-website/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://vanneswong.github.io/smart-doc-scanner-website/" },
+          { "@type": "ListItem", "position": 2, "name": "处理管线", "item": "https://vanneswong.github.io/smart-doc-scanner-website/pipeline.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================= Nav ======================= -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html" class="active" aria-current="page">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <a class="btn small ghost" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= Page Hero ======================= -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span class="sep">/</span><span>处理管线</span>
+        </nav>
+        <h1>处理管线与技术栈</h1>
+        <p class="lead">从上传到成品，每一步都经过精心调校，核心是「两层估计」的去阴影策略。</p>
+      </div>
+    </section>
+
+    <!-- ======================= Pipeline ======================= -->
+    <section class="section" id="pipeline">
+      <div class="section-head">
+        <span class="eyebrow">处理管线</span>
+        <h2>一条管线，端到端增强</h2>
+        <p>从上传到成品，每一步都经过精心调校，核心是「两层估计」的去阴影策略。</p>
+      </div>
+
+      <div class="pipeline">
+        <div class="pipe-step">
+          <span class="pipe-num">01</span>
+          <div>
+            <h3>输入修正</h3>
+            <p>EXIF 方向修正 · 限制长边 · JPEG 解码，统一进入处理流程。</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <span class="pipe-num">02</span>
+          <div>
+            <h3>自动找边</h3>
+            <p>在 1100px 缩略图上多策略检测四边形：多阈值 Canny、形态学梯度、亮纸掩膜，按面积 × 直角评分选最优。</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <span class="pipe-num">03</span>
+          <div>
+            <h3>透视变换</h3>
+            <p>透视变换到目标纸张像素（A4@300dpi = 2480×3508），三次插值摊平。</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <span class="pipe-num">04</span>
+          <div>
+            <h3>增强链路</h3>
+            <p>去噪 → 白平衡 → 去阴影（闭运算 + 网格白平衡）→ 去彩色手写 → CLAHE → 背景纯白 → 锐化。</p>
+          </div>
+        </div>
+        <div class="pipe-step">
+          <span class="pipe-num">05</span>
+          <div>
+            <h3>模式输出</h3>
+            <p>彩色 / 灰度 / 黑白自适应阈值，输出 JPEG 或 PNG，并支持多页 PDF / ZIP。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <h3>去阴影的关键：两层估计</h3>
+        <div class="insight-grid">
+          <div class="insight-item">
+            <strong>闭运算</strong>
+            <p>用约短边 3.5% 的核对纸面做形态学闭运算，填掉文字笔画与窄折痕，得到平滑的纸面亮度图。核太小填不掉折痕，太大会把渐变阴影一起抬高。</p>
+          </div>
+          <div class="insight-item">
+            <strong>网格白平衡</strong>
+            <p>在 20×20 个局部块上分别取 85 分位纸面颜色，逐通道除以该颜色并把目标设为纯白，消除渐变、弯曲纸张明暗与蓝 / 黄灯光偏色。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Tech ======================= -->
+    <section class="section section-tint" id="tech">
+      <div class="section-head">
+        <span class="eyebrow">技术栈</span>
+        <h2>轻量、自托管、隐私优先</h2>
+        <p>没有账号系统，没有云端上传，所有图片只在本机临时目录处理。</p>
+      </div>
+
+      <div class="tech-grid">
+        <article class="card tech">
+          <h3>Python 3.12 + FastAPI + OpenCV</h3>
+          <p>高性能图像处理后端，原生 OpenCV 算法，支持交互式 API 文档。</p>
+        </article>
+        <article class="card tech">
+          <h3>原生 HTML / CSS / JavaScript</h3>
+          <p>前端无 Node 构建步骤，打开即用，拖放 / 粘贴 / 手机拍照多种上传方式。</p>
+        </article>
+        <article class="card tech">
+          <h3>单容器 Docker 部署</h3>
+          <p>非 root 运行，约 120 MB 镜像；Docker Compose 一键启动，环境变量灵活配置。</p>
+        </article>
+        <article class="card tech">
+          <h3>隐私与自动清理</h3>
+          <p>原图与结果只保存在本机临时目录，默认 6 小时后自动清理，最多 800 个文件 / 目录。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= CTA ======================= -->
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>让每一张照片，都成为一份正式文档</h2>
+        <p>开源 · 自托管 · 隐私安全。克隆仓库，即刻开始。</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">访问 GitHub</a>
+          <a class="btn ghost on-dark" href="deploy.html">查看部署方式</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= Footer ======================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <p>OpenCV 边缘检测 · 透视变换 · 自适应阈值 · 所有图片仅在本机临时保存</p>
+      <p class="copyright">
+        © 2026 <a href="https://github.com/vanneswong" target="_blank" rel="noopener">vanneseong</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/vanneswong" target="_blank" rel="noopener">https://github.com/vanneswong</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

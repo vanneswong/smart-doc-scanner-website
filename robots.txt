@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanneswong.github.io/smart-doc-scanner-website/sitemap.xml

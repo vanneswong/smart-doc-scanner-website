@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>说明与限制 - 智能文档扫描 Smart Document Scanner</title>
+  <meta name="description" content="智能文档扫描的说明与限制：无登录鉴权适合内网使用、支持 JPG/PNG/WebP 格式、自动尺寸不代表真实物理尺寸、去彩色手写仅针对红/蓝笔迹等。">
+  <meta name="keywords" content="文档扫描说明,使用限制,隐私安全,去彩色手写限制,HEIC,自动尺寸,局域网">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="vanneseong">
+  <link rel="canonical" href="https://vanneswong.github.io/smart-doc-scanner-website/notes.html">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
+  <meta property="og:title" content="说明与限制 - 智能文档扫描 Smart Document Scanner">
+  <meta property="og:description" content="了解智能文档扫描的适用场景与边界：内网使用、支持格式、自动尺寸说明、去彩色手写限制等。">
+  <meta property="og:url" content="https://vanneswong.github.io/smart-doc-scanner-website/notes.html">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="说明与限制 - 智能文档扫描 Smart Document Scanner">
+  <meta name="twitter:description" content="了解智能文档扫描的适用场景与边界：内网使用、支持格式、自动尺寸说明、去彩色手写限制等。">
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vanneswong.github.io/smart-doc-scanner-website/notes.html#webpage",
+        "url": "https://vanneswong.github.io/smart-doc-scanner-website/notes.html",
+        "name": "说明与限制 - 智能文档扫描 Smart Document Scanner",
+        "description": "了解智能文档扫描的适用场景与边界：内网使用、支持格式、自动尺寸说明、去彩色手写限制等。",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "https://vanneswong.github.io/smart-doc-scanner-website/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://vanneswong.github.io/smart-doc-scanner-website/" },
+          { "@type": "ListItem", "position": 2, "name": "说明与限制", "item": "https://vanneswong.github.io/smart-doc-scanner-website/notes.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================= Nav ======================= -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html" class="active" aria-current="page">说明</a>
+      </nav>
+      <a class="btn small ghost" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= Page Hero ======================= -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span class="sep">/</span><span>说明与限制</span>
+        </nav>
+        <h1>说明与限制</h1>
+        <p class="lead">坦率地说明边界。了解适用场景，才能用得更好。</p>
+      </div>
+    </section>
+
+    <!-- ======================= Notes ======================= -->
+    <section class="section" id="notes">
+      <div class="notes-grid">
+        <div class="note"><span class="note-dot"></span>本应用没有登录鉴权，适合局域网 / 内网使用；暴露公网时请放在带认证的反向代理后面。</div>
+        <div class="note"><span class="note-dot"></span>支持 JPG / PNG / WebP；iPhone HEIC 通常由浏览器转成 JPEG，服务器直接收到 HEIC 会返回「无法识别该图片格式」。</div>
+        <div class="note"><span class="note-dot"></span>「自动尺寸」按检测到的四边形比例输出，不代表真实物理尺寸；需要标准纸张请选 A4 / A5 等预设。</div>
+        <div class="note"><span class="note-dot"></span>页面列表仅保存在浏览器内存中，刷新页面后需重新生成；结果文件默认 6 小时后清理。</div>
+        <div class="note"><span class="note-dot"></span>「去彩色手写」仅针对红 / 蓝等有颜色笔迹；黑色签字笔、铅笔与印刷文字难以可靠区分，不在功能范围内。</div>
+        <div class="note"><span class="note-dot"></span>去阴影默认强度 100；如需保留纸张纹理 / 浅灰底纹，可在界面下调。</div>
+      </div>
+
+      <div class="section-more">
+        <a class="btn ghost" href="features.html">返回查看功能</a>
+      </div>
+    </section>
+
+    <!-- ======================= CTA ======================= -->
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>让每一张照片，都成为一份正式文档</h2>
+        <p>开源 · 自托管 · 隐私安全。克隆仓库，即刻开始。</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">访问 GitHub</a>
+          <a class="btn ghost on-dark" href="deploy.html">查看部署方式</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= Footer ======================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+      </nav>
+      <p>OpenCV 边缘检测 · 透视变换 · 自适应阈值 · 所有图片仅在本机临时保存</p>
+      <p class="copyright">
+        © 2026 <a href="https://github.com/vanneswong" target="_blank" rel="noopener">vanneseong</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/vanneswong" target="_blank" rel="noopener">https://github.com/vanneswong</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
