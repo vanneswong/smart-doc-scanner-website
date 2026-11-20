@@ -1,0 +1,49 @@
+# 智能文档扫描 Smart Document Scanner
+
+> 智能文档扫描（Smart Document Scanner）是一个自托管的手机文档扫描应用：拍照后自动找纸、透视拉直、去阴影、压平折痕、去除彩色手写笔迹，增强成扫描仪效果，并按 A4 / A5 / A3 / Letter / Legal / 自定义尺寸输出，可合并多页导出 PDF 或打包下载图片。当前版本 v0.3.0。
+
+## 核心信息
+
+- 后端：Python 3.12 + FastAPI + OpenCV
+- 前端：原生 HTML / CSS / JavaScript，无 Node 构建步骤
+- 部署：单容器 Docker / Docker Compose，非 root 运行
+- 隐私：图片只保存在本机临时目录，默认 6 小时后自动清理
+- 在线应用：https://scanner.zynotes.cn/
+- 开源仓库：https://github.com/vanneswong/smart-doc-scanner
+- 作者：vanneseong（https://github.com/vanneswong）
+
+## 页面导航
+
+- [首页](https://smartscanner.zynotes.cn/)
+- [核心功能](https://smartscanner.zynotes.cn/features.html)
+- [处理管线](https://smartscanner.zynotes.cn/pipeline.html)
+- [部署指南](https://smartscanner.zynotes.cn/deploy.html)
+- [HTTP API](https://smartscanner.zynotes.cn/api.html)
+- [说明与限制](https://smartscanner.zynotes.cn/notes.html)
+
+## 核心功能
+
+- 自动找边：Canny 多阈值 + 形态学梯度 + 亮纸掩膜，整幅纸张保护
+- 手动校正：拖动四角点实时预览
+- 透视校正：getPerspectiveTransform + 三次插值，去歪斜
+- 方向与旋转：自动判断横 / 纵向，支持 0° / 90° / 180° / 270°
+- 去阴影：局部闭运算 + 20×20 网格白平衡
+- 去彩色手写：局部色度 top-hat 检测红 / 蓝笔迹，保留印刷文字与印章
+- 白平衡：纸面高光白点校正偏色
+- CLAHE：LAB-L 通道对比度增强
+- 背景纯白：局部区域拉纯白，保留文字与印章颜色
+- 去噪：双边滤波三档强度
+- 锐化：反锐化掩模，强度可调
+- 色彩模式：彩色 / 灰度 / 黑白
+- 纸张尺寸：A4 / A5 / A3 / Letter / Legal / 自动 / 自定义
+- 导出：多页 PDF、单页 JPG / PNG、多页 ZIP
+
+## HTTP API
+
+- POST /api/detect：上传图片，返回任务 ID 与纸张四角
+- POST /api/redetect：重新运行边缘检测
+- POST /api/process：生成扫描件，支持快速预览
+- POST /api/pdf：多页 PDF 导出
+- POST /api/zip：多页图片 ZIP 打包
+- GET /healthz：健康检查
+- GET /docs：OpenAPI 交互式文档
