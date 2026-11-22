@@ -1,6 +1,6 @@
 # 智能文档扫描 Smart Document Scanner
 
-> 智能文档扫描（Smart Document Scanner）是一个自托管的手机文档扫描应用：拍照后自动找纸、透视拉直、去阴影、压平折痕、去除彩色手写笔迹，并用白底扫描增强成纯白高对比效果，按 A4 / A5 / A3 / Letter / Legal / 自定义尺寸输出，可合并多页导出 PDF 或打包下载图片。当前版本 v0.4.1。
+> 智能文档扫描（Smart Document Scanner）是一个自托管的手机文档扫描应用：拍照后自动找纸、透视拉直、去阴影、压平折痕、去除彩色手写笔迹，并用白底扫描增强成纯白高对比效果，按 A4 / A5 / A3 / Letter / Legal / 自定义尺寸输出，可合并多页导出 PDF 或打包下载图片。当前版本 v0.4.2。
 
 ## 核心信息
 
@@ -38,6 +38,8 @@
 - 色彩模式：彩色 / 灰度 / 黑白
 - 纸张尺寸：A4 / A5 / A3 / Letter / Legal / 自动 / 自定义
 - 导出：多页 PDF、单页 JPG / PNG、多页 ZIP
+- 页面拖动排序：支持鼠标 / 触摸 / 触控笔拖动，PDF 与 ZIP 按新顺序导出
+- 版本显示：页面底部展示当前版本，通过 /healthz 读取后端版本
 
 ## HTTP API
 
@@ -46,5 +48,5 @@
 - POST /api/process：生成扫描件，支持快速预览
 - POST /api/pdf：多页 PDF 导出
 - POST /api/zip：多页图片 ZIP 打包
-- GET /healthz：健康检查
+- GET /healthz：健康检查，返回 {"status":"ok","version":"0.4.2"}
 - GET /docs：OpenAPI 交互式文档

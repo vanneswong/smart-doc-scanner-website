@@ -106,14 +106,14 @@
       <div class="deploy-grid">
         <div class="code-block">
           <div class="code-head"><span>使用腾讯云 TCR 镜像 · mikewong/scanner</span></div>
-          <pre><code>docker pull ccr.ccs.tencentyun.com/mikewong/scanner:v0.4.1
+          <pre><code>docker pull ccr.ccs.tencentyun.com/mikewong/scanner:v0.4.2
 
 docker run -d \
   --name smart-doc-scanner \
   --restart unless-stopped \
   -p 10030:8000 \
   -v scanner-data:/data \
-  ccr.ccs.tencentyun.com/mikewong/scanner:v0.4.1</code></pre>
+  ccr.ccs.tencentyun.com/mikewong/scanner:v0.4.2</code></pre>
         </div>
         <div class="code-block">
           <div class="code-head"><span>Docker Compose 本地构建</span></div>

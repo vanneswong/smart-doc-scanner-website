@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f766e">
   <title>核心功能 - 智能文档扫描 Smart Document Scanner</title>
-  <meta name="description" content="智能文档扫描的 14 项核心能力：自动找边、手动校正、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、去噪、锐化、色彩模式、纸张尺寸、多页 PDF 与图片导出。">
-  <meta name="keywords" content="文档扫描功能,自动找边,透视校正,去阴影,白底扫描,去彩色手写,白平衡,CLAHE,去噪,锐化,纸张尺寸,多页PDF,图片导出">
+  <meta name="description" content="智能文档扫描的 17 项核心能力：自动找边、手动校正、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、去噪、锐化、色彩模式、纸张尺寸、页面拖动排序、多页 PDF 与图片导出。">
+  <meta name="keywords" content="文档扫描功能,自动找边,透视校正,去阴影,白底扫描,去彩色手写,白平衡,CLAHE,去噪,锐化,页面排序,拖动排序,纸张尺寸,多页PDF,图片导出">
   <meta name="robots" content="index,follow">
   <meta name="author" content="vanneseong">
   <link rel="canonical" href="https://smartscanner.zynotes.cn/features.html">
@@ -20,14 +20,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
   <meta property="og:title" content="核心功能 - 智能文档扫描 Smart Document Scanner">
-  <meta property="og:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、多页 PDF 与图片导出。">
+  <meta property="og:description" content="17 项核心能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、页面拖动排序、多页 PDF 与图片导出。">
   <meta property="og:url" content="https://smartscanner.zynotes.cn/features.html">
   <meta property="og:locale" content="zh_CN">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="核心功能 - 智能文档扫描 Smart Document Scanner">
-  <meta name="twitter:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、多页 PDF 与图片导出。">
+  <meta name="twitter:description" content="17 项核心能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、页面拖动排序、多页 PDF 与图片导出。">
 
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -39,7 +39,7 @@
         "@id": "https://smartscanner.zynotes.cn/features.html#webpage",
         "url": "https://smartscanner.zynotes.cn/features.html",
         "name": "核心功能 - 智能文档扫描 Smart Document Scanner",
-        "description": "14 项图像增强能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、多页 PDF 与图片导出。",
+        "description": "17 项核心能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、页面拖动排序、多页 PDF 与图片导出。",
         "inLanguage": "zh-CN",
         "isPartOf": { "@id": "https://smartscanner.zynotes.cn/#website" }
       },
@@ -217,6 +217,22 @@
           </div>
           <h3>图片导出</h3>
           <p>单页直接下载 JPEG（彩色 / 灰度）或 PNG（黑白）；多页一键打包为 ZIP，按页顺序命名。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h10M9 12h10M9 19h10"/><circle cx="5" cy="5" r="1.4"/><circle cx="5" cy="12" r="1.4"/><circle cx="5" cy="19" r="1.4"/></svg>
+          </div>
+          <h3>页面拖动排序</h3>
+          <p>扫描件卡片支持鼠标 / 触摸 / 触控笔拖动排序，松开后自动重排并刷新编号，PDF 与 ZIP 按新顺序导出。</p>
+        </article>
+
+        <article class="card feature">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+          </div>
+          <h3>版本显示</h3>
+          <p>页面底部展示当前版本号，加载后通过 <code>/healthz</code> 自动读取后端版本，静态兼底为当前版本。</p>
         </article>
       </div>
     </section>
