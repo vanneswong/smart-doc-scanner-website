@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f766e">
   <title>核心功能 - 智能文档扫描 Smart Document Scanner</title>
-  <meta name="description" content="智能文档扫描的 14 项核心能力：自动找边、手动校正、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、去噪、锐化、色彩模式、纸张尺寸、多页 PDF 与图片导出。">
-  <meta name="keywords" content="文档扫描功能,自动找边,透视校正,去阴影,去彩色手写,白平衡,CLAHE,背景纯白,去噪,锐化,纸张尺寸,多页PDF,图片导出">
+  <meta name="description" content="智能文档扫描的 14 项核心能力：自动找边、手动校正、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、去噪、锐化、色彩模式、纸张尺寸、多页 PDF 与图片导出。">
+  <meta name="keywords" content="文档扫描功能,自动找边,透视校正,去阴影,白底扫描,去彩色手写,白平衡,CLAHE,去噪,锐化,纸张尺寸,多页PDF,图片导出">
   <meta name="robots" content="index,follow">
   <meta name="author" content="vanneseong">
   <link rel="canonical" href="https://smartscanner.zynotes.cn/features.html">
@@ -20,14 +20,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
   <meta property="og:title" content="核心功能 - 智能文档扫描 Smart Document Scanner">
-  <meta property="og:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、多页 PDF 与图片导出。">
+  <meta property="og:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、多页 PDF 与图片导出。">
   <meta property="og:url" content="https://smartscanner.zynotes.cn/features.html">
   <meta property="og:locale" content="zh_CN">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="核心功能 - 智能文档扫描 Smart Document Scanner">
-  <meta name="twitter:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、多页 PDF 与图片导出。">
+  <meta name="twitter:description" content="14 项图像增强能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、多页 PDF 与图片导出。">
 
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -39,7 +39,7 @@
         "@id": "https://smartscanner.zynotes.cn/features.html#webpage",
         "url": "https://smartscanner.zynotes.cn/features.html",
         "name": "核心功能 - 智能文档扫描 Smart Document Scanner",
-        "description": "14 项图像增强能力：自动找边、透视校正、去阴影、去彩色手写、白平衡、CLAHE、背景纯白、多页 PDF 与图片导出。",
+        "description": "14 项图像增强能力：自动找边、透视校正、去阴影、白底扫描、去彩色手写、白平衡、CLAHE、多页 PDF 与图片导出。",
         "inLanguage": "zh-CN",
         "isPartOf": { "@id": "https://smartscanner.zynotes.cn/#website" }
       },
@@ -160,15 +160,15 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 12h16M4 16h16"/><circle cx="8" cy="8" r="1.5"/><circle cx="16" cy="12" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg>
           </div>
           <h3>CLAHE 对比度增强</h3>
-          <p>在 LAB-L 通道做限制对比度自适应直方图均衡，找回浅色文字与褪色笔画。</p>
+          <p>在 LAB-L 通道做限制对比度自适应直方图均衡，找回浅色文字；白底扫描开启时内部已完成对比增强，关闭白底扫描时才额外应用。</p>
         </article>
 
         <article class="card feature">
           <div class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16M12 4v16"/></svg>
           </div>
-          <h3>背景纯白</h3>
-          <p>每个局部区域独立把纸面拉到纯白，同时保留文字、铅笔和印章颜色，接近扫描仪的纸白效果。</p>
+          <h3>白底扫描</h3>
+          <p>中值背景减除把纸面、折痕与阴影压成纯白，文字压黑且保持原笔画粗细；去除孤立黑点，并保留印章与红 / 蓝笔迹的色度。</p>
         </article>
 
         <article class="card feature">
@@ -192,7 +192,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20M12 2a10 10 0 0 0 0 20"/></svg>
           </div>
           <h3>色彩模式</h3>
-          <p>彩色 / 灰度 / 黑白三种输出。黑白模式使用强双边滤波 + 自适应阈值 + 中值滤波 + 连通域小噪点清理。</p>
+          <p>彩色 / 灰度 / 黑白三种输出。白底扫描开启时自动做纯白背景、去斑与文字对比增强；黑白模式在白底扫描后二值化并清理噪点。</p>
         </article>
 
         <article class="card feature">

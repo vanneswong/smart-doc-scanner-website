@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f766e">
   <title>智能文档扫描 Smart Document Scanner - 手机拍照生成扫描级 PDF</title>
-  <meta name="description" content="智能文档扫描（Smart Document Scanner）是一个自托管的手机文档扫描应用：拍照自动找纸、透视拉直、去阴影、去彩色手写，输出 A4/A5/A3/Letter/Legal 等标准尺寸，支持多页 PDF 与图片导出。">
+  <meta name="description" content="智能文档扫描（Smart Document Scanner）是一个自托管的手机文档扫描应用：拍照自动找纸、透视拉直、去阴影、去彩色手写，并用白底扫描增强成纯白高对比效果，输出 A4/A5/A3/Letter/Legal 等标准尺寸，支持多页 PDF 与图片导出。">
   <meta name="keywords" content="文档扫描,智能扫描,透视校正,去阴影,去彩色手写,PDF导出,OpenCV,FastAPI,自托管,Smart Document Scanner">
   <meta name="robots" content="index,follow">
   <meta name="author" content="vanneseong">
@@ -20,14 +20,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
   <meta property="og:title" content="智能文档扫描 Smart Document Scanner - 手机拍照生成扫描级 PDF">
-  <meta property="og:description" content="自托管手机文档扫描应用：自动找边、透视拉直、去阴影、去彩色手写，输出标准纸张尺寸，支持多页 PDF 与图片导出。">
+  <meta property="og:description" content="自托管手机文档扫描应用：自动找边、透视拉直、去阴影、去彩色手写、白底扫描，输出标准纸张尺寸，支持多页 PDF 与图片导出。">
   <meta property="og:url" content="https://smartscanner.zynotes.cn/">
   <meta property="og:locale" content="zh_CN">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="智能文档扫描 Smart Document Scanner">
-  <meta name="twitter:description" content="自托管手机文档扫描应用：自动找边、透视拉直、去阴影、去彩色手写，输出标准纸张尺寸，支持多页 PDF 与图片导出。">
+  <meta name="twitter:description" content="自托管手机文档扫描应用：自动找边、透视拉直、去阴影、去彩色手写、白底扫描，输出标准纸张尺寸，支持多页 PDF 与图片导出。">
 
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -39,7 +39,7 @@
         "@id": "https://smartscanner.zynotes.cn/#website",
         "url": "https://smartscanner.zynotes.cn/",
         "name": "智能文档扫描 Smart Document Scanner",
-        "description": "自托管手机文档扫描应用：自动找边、透视拉直、去阴影、去彩色手写，输出标准纸张尺寸，支持多页 PDF 与图片导出。",
+        "description": "自托管手机文档扫描应用：自动找边、透视拉直、去阴影、去彩色手写、白底扫描，输出标准纸张尺寸，支持多页 PDF 与图片导出。",
         "inLanguage": "zh-CN",
         "author": { "@type": "Person", "name": "vanneseong", "url": "https://github.com/vanneswong" }
       },
@@ -50,8 +50,8 @@
         "url": "https://smartscanner.zynotes.cn/",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web, Docker",
-        "softwareVersion": "0.3.0",
-        "description": "拍照自动找纸、透视拉直、去阴影、压平折痕、去除彩色手写笔迹，增强成扫描仪效果，并按标准纸张尺寸输出多页 PDF 或图片。",
+        "softwareVersion": "0.4.1",
+        "description": "拍照自动找纸、透视拉直、去阴影、压平折痕、去除彩色手写笔迹，并用白底扫描增强成纯白高对比效果，按标准纸张尺寸输出多页 PDF 或图片。",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
         "author": { "@type": "Person", "name": "vanneseong", "url": "https://github.com/vanneswong" },
         "isAccessibleForFree": true
@@ -104,13 +104,13 @@
         <div class="hero-copy">
           <div class="hero-badges">
             <span class="pill accent">自托管 · 隐私安全</span>
-            <span class="pill">v0.3.0</span>
+            <span class="pill">v0.4.1</span>
             <span class="pill">本地处理 · 无需上传云端</span>
           </div>
           <h1>把手机照片，变成<br><span class="grad">扫描仪级</span>的清晰文档</h1>
           <p class="lead">
             拍照后自动找纸、透视拉直、去阴影、压平折痕、去除彩色手写笔迹，
-            增强成接近扫描仪的效果，并按标准纸张尺寸输出多页 PDF 或图片。
+            并用白底扫描增强成接近扫描仪的纯白高对比效果，按标准纸张尺寸输出多页 PDF 或图片。
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="https://scanner.zynotes.cn/" target="_blank" rel="noopener">立即使用</a>

@@ -130,14 +130,14 @@
           <span class="pipe-num">04</span>
           <div>
             <h3>增强链路</h3>
-            <p>去噪 → 白平衡 → 去阴影（闭运算 + 网格白平衡）→ 去彩色手写 → CLAHE → 背景纯白 → 锐化。</p>
+            <p>去噪 → 白平衡 → 去阴影（闭运算 + 网格白平衡）→ 去彩色手写 → 白底扫描（默认开启）→ 锐化；关闭白底扫描时为 CLAHE → 锐化。</p>
           </div>
         </div>
         <div class="pipe-step">
           <span class="pipe-num">05</span>
           <div>
             <h3>模式输出</h3>
-            <p>彩色 / 灰度 / 黑白自适应阈值，输出 JPEG 或 PNG，并支持多页 PDF / ZIP。</p>
+            <p>彩色 / 灰度 / 黑白输出 JPEG 或 PNG；黑白模式在白底扫描后二值化并清理噪点，并支持多页 PDF / ZIP。</p>
           </div>
         </div>
       </div>
@@ -152,6 +152,20 @@
           <div class="insight-item">
             <strong>网格白平衡</strong>
             <p>在 20×20 个局部块上分别取 85 分位纸面颜色，逐通道除以该颜色并把目标设为纯白，消除渐变、弯曲纸张明暗与蓝 / 黄灯光偏色。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <h3>白底扫描：最后一步「扫描仪化」</h3>
+        <div class="insight-grid">
+          <div class="insight-item">
+            <strong>中值背景估计</strong>
+            <p>在 LAB-L 通道估计中值背景：窗口远大于文字笔画、小于整页尺度，文字不会把背景拉黑，而宽折痕和手影会被当作背景。</p>
+          </div>
+          <div class="insight-item">
+            <strong>背景减除与保色</strong>
+            <p>纸面和折痕压成纯白，文字压成黑色且不做腐蚀加粗；去除孤立暗点、清理最外侧 1.5% 边缘，并保留印章、红 / 蓝笔迹的原始色度。</p>
           </div>
         </div>
       </div>
