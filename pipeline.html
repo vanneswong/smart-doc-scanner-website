@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f766e">
   <title>处理管线与技术栈 - 智能文档扫描 Smart Document Scanner</title>
-  <meta name="description" content="智能文档扫描的端到端处理管线：输入修正、自动找边、透视变换、增强链路与模式输出，以及「两层估计」去阴影策略和 Python + FastAPI + OpenCV 技术栈。">
+  <meta name="description" content="智能文档扫描的端到端图像处理管线：EXIF 输入修正、1100px 缩略图上多策略自动找边、透视变换摊平成标准纸张、去噪与白平衡，以及「闭运算 + 20×20 网格白平衡」两层估计去阴影，并详解白底扫描（中值背景减除、保留彩色印章）原理；技术栈为 Python 3.12 + FastAPI + OpenCV。">
   <meta name="keywords" content="图像处理管线,透视变换,去阴影算法,闭运算,网格白平衡,FastAPI,OpenCV,Docker,自托管">
   <meta name="robots" content="index,follow">
   <meta name="author" content="vanneseong">
@@ -20,14 +20,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
   <meta property="og:title" content="处理管线与技术栈 - 智能文档扫描 Smart Document Scanner">
-  <meta property="og:description" content="端到端图像处理管线与「两层估计」去阴影策略，基于 Python 3.12 + FastAPI + OpenCV，轻量、自托管、隐私优先。">
+  <meta property="og:description" content="智能文档扫描的端到端图像处理管线：EXIF 输入修正、1100px 缩略图上多策略自动找边、透视变换摊平成标准纸张、去噪与白平衡，以及「闭运算 + 20×20 网格白平衡」两层估计去阴影，并详解白底扫描（中值背景减除、保留彩色印章）原理；技术栈为 Python 3.12 + FastAPI + OpenCV。">
   <meta property="og:url" content="https://smartscanner.zynotes.cn/pipeline.html">
   <meta property="og:locale" content="zh_CN">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="处理管线与技术栈 - 智能文档扫描 Smart Document Scanner">
-  <meta name="twitter:description" content="端到端图像处理管线与「两层估计」去阴影策略，基于 Python 3.12 + FastAPI + OpenCV，轻量、自托管、隐私优先。">
+  <meta name="twitter:description" content="智能文档扫描的端到端图像处理管线：EXIF 输入修正、1100px 缩略图上多策略自动找边、透视变换摊平成标准纸张、去噪与白平衡，以及「闭运算 + 20×20 网格白平衡」两层估计去阴影，并详解白底扫描（中值背景减除、保留彩色印章）原理；技术栈为 Python 3.12 + FastAPI + OpenCV。">
 
   <!-- 结构化数据 -->
   <script type="application/ld+json">
@@ -39,7 +39,7 @@
         "@id": "https://smartscanner.zynotes.cn/pipeline.html#webpage",
         "url": "https://smartscanner.zynotes.cn/pipeline.html",
         "name": "处理管线与技术栈 - 智能文档扫描 Smart Document Scanner",
-        "description": "端到端图像处理管线与「两层估计」去阴影策略，基于 Python 3.12 + FastAPI + OpenCV，轻量、自托管、隐私优先。",
+        "description": "智能文档扫描的端到端图像处理管线：EXIF 输入修正、1100px 缩略图上多策略自动找边、透视变换摊平成标准纸张、去噪与白平衡，以及「闭运算 + 20×20 网格白平衡」两层估计去阴影，并详解白底扫描（中值背景减除、保留彩色印章）原理；技术栈为 Python 3.12 + FastAPI + OpenCV。",
         "inLanguage": "zh-CN",
         "isPartOf": { "@id": "https://smartscanner.zynotes.cn/#website" }
       },
