@@ -72,3 +72,39 @@ export INDEXNOW_KEY=42d1883b2d654e86a37a660bbf8964bc
 ```
 
 > 注意：一个域名的 URL 必须单独提交。`scanner.zynotes.cn`（应用域名）需要在它自己的根目录放置密钥文件后才能提交。
+
+## build_article.py — 文章页生成
+
+把 `articles/src/*.md` 渲染成站点风格的文章页 `articles/<slug>.html`。
+
+```bash
+python3 scripts/build_article.py                        # 渲染全部文章
+python3 scripts/build_article.py articles/src/foo.md    # 渲染指定文章
+```
+
+Markdown 文件头支持 front matter：
+
+```yaml
+---
+title: 文章标题
+slug: mobile-doc-to-scanner
+description: 150-160 字的 meta description（同时用于 OG / Twitter / JSON-LD）
+date: 2026-11-28
+author: vanneswong
+reading_time: 15
+tags: 深度长文, 实现原理, 部署
+cover: images/01-cover.jpg
+summary: 列表页与文章页顶部摘要
+---
+```
+
+生成的文章页包含：与全站一致的导航/页脚、文章 hero（面包屑 + 标签 + 摘要 + 作者/日期/阅读时长）、
+封面图、右侧粘性目录（桌面端）、阅读进度条、配图题注、相关阅读卡片，以及 Article / BreadcrumbList 结构化数据。
+
+新增一篇文章的流程：
+
+1. 把 Markdown 放到 `articles/src/<slug>.md`，配图放 `articles/images/`；
+2. 运行 `python3 scripts/build_article.py`；
+3. 在 `news.html` 复制一个 `<article class="news-feature">` 区块，改标题/摘要/链接；
+4. 在 `sitemap.xml` 与 `llms.txt` 各加一条；
+5. 运行 `./scripts/indexnow.sh` 提交索引。

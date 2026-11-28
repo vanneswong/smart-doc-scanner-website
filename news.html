@@ -105,20 +105,20 @@
         <nav class="breadcrumb" aria-label="面包屑">
           <a href="index.html">首页</a><span class="sep">/</span><span>新闻</span>
         </nav>
+        <span class="eyebrow">新闻动态</span>
         <h1>新闻与文章</h1>
-        <p class="lead">围绕智能文档扫描的版本动态、实现思路与实测对比，记录这个自托管扫描服务是怎么一步步做出来的。</p>
+        <p class="lead">版本动态、实现思路与实测对比，记录这个自托管扫描服务是怎么一步步做出来的。</p>
       </div>
     </section>
 
-    <!-- ======================= News list ======================= -->
-    <section class="section" id="news">
-      <div class="news-list">
-
-        <article class="news-item">
-          <a class="news-cover" href="articles/mobile-doc-to-scanner.html" aria-hidden="true" tabindex="-1">
-            <img src="articles/images/01-cover.jpg" alt="手机照片变成标准扫描件的效果封面" loading="lazy" width="1600" height="681">
+    <!-- ======================= 头条文章 ======================= -->
+    <section class="section section-tight" id="news">
+      <div class="news-wrap">
+        <article class="news-feature">
+          <a class="news-feature-cover" href="articles/mobile-doc-to-scanner.html" aria-label="阅读：把手机拍的文档变成扫描件">
+            <img src="articles/images/01-cover.jpg" alt="手机照片变成标准扫描件的效果封面" width="1600" height="681">
           </a>
-          <div class="news-main">
+          <div class="news-feature-body">
             <div class="news-meta">
               <span class="news-tag">深度长文</span>
               <time datetime="2026-11-28">2026 年 11 月 28 日</time>
@@ -127,19 +127,43 @@
             </div>
             <h2><a href="articles/mobile-doc-to-scanner.html">把手机拍的文档变成扫描件：一个能自己部署的扫描服务</a></h2>
             <p class="news-excerpt">
-              手机拍文档，真正的问题不是清晰度，而是歪、暗、乱。这篇文章围绕 v0.4.2 讲清完整实现：
-              多阈值 Canny 自动找边、四点透视拉正、「闭运算 + 20×20 网格白平衡」两层估计去阴影、
-              中值背景减除的白底扫描、局部色度 top-hat 去彩色手写，以及多页拖动排序、PDF / ZIP 导出与一个容器完成的自托管部署，并附带原图与扫描件的实测对比。
+              手机拍文档，真正的问题不是清晰度，而是歪、暗、乱。这篇文章围绕 v0.4.2 讲清完整实现：多阈值 Canny 自动找边、四点透视拉正、「闭运算 + 20×20 网格白平衡」两层估计去阴影、中值背景减除的白底扫描、局部色度 top-hat 去彩色手写，以及多页拖动排序、PDF / ZIP 导出与一个容器完成的自托管部署。
             </p>
-            <a class="news-more" href="articles/mobile-doc-to-scanner.html">阅读全文 →</a>
+            <div class="news-cta">
+              <a class="btn primary" href="articles/mobile-doc-to-scanner.html">阅读全文</a>
+              <span class="news-readtime">含原图与扫描件实测对比 · 6 张配图</span>
+            </div>
           </div>
         </article>
-
       </div>
+    </section>
 
+    <!-- ======================= 延伸阅读 ======================= -->
+    <section class="section section-tint" id="more">
+      <div class="section-head">
+        <span class="eyebrow">延伸阅读</span>
+        <h2>想先了解项目本身？</h2>
+        <p>文章讲的是实现思路，站点里还有功能清单、处理管线与部署方式。</p>
+      </div>
+      <div class="more-grid">
+        <a class="more-card" href="features.html">
+          <strong>核心功能</strong>
+          <span>17 项能力逐项说明：自动找边、透视校正、去阴影、白底扫描、去彩色手写与导出。</span>
+          <em>查看功能 →</em>
+        </a>
+        <a class="more-card" href="pipeline.html">
+          <strong>处理管线</strong>
+          <span>从 EXIF 修正到白底扫描的完整链路，两层估计去阴影与中值背景减除原理。</span>
+          <em>查看管线 →</em>
+        </a>
+        <a class="more-card" href="deploy.html">
+          <strong>部署指南</strong>
+          <span>一个容器跑起来：腾讯云 TCR 预构建镜像，或 Docker Compose 本地构建。</span>
+          <em>查看部署 →</em>
+        </a>
+      </div>
       <div class="section-more">
-        <a class="btn primary" href="https://scanner.zynotes.cn/" target="_blank" rel="noopener">在线试用</a>
-        <a class="btn ghost" href="deploy.html">自己部署一份</a>
+        <a class="btn ghost" href="https://scanner.zynotes.cn/" target="_blank" rel="noopener">先在线试用</a>
       </div>
     </section>
 

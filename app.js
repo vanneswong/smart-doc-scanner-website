@@ -2,9 +2,9 @@
 (function () {
   'use strict';
 
-  // 滚动渐显动画：为带 .reveal 的元素添加可见性
+  /* ---------------------------------------------- 滚动渐显动画 */
   var revealables = document.querySelectorAll(
-    '.section-head, .feature, .pipe-step, .insight, .tech, .code-block, .env-list, .api, .table-wrap, .note'
+    '.section-head, .feature, .pipe-step, .insight, .tech, .code-block, .env-list, .api, .table-wrap, .note, .news-feature, .more-card'
   );
 
   revealables.forEach(function (el, i) {
@@ -29,4 +29,29 @@
   } else {
     revealables.forEach(function (el) { el.classList.add('visible'); });
   }
+
+  /* ---------------------------------------------- 文章阅读进度条 */
+  var bar = document.getElementById('readProgress');
+  if (!bar) return;
+
+  var ticking = false;
+
+  function updateProgress() {
+    var doc = document.documentElement;
+    var scrollTop = window.pageYOffset || doc.scrollTop || 0;
+    var height = (doc.scrollHeight || 0) - window.innerHeight;
+    var ratio = height > 0 ? Math.min(Math.max(scrollTop / height, 0), 1) : 0;
+    bar.style.width = (ratio * 100).toFixed(2) + '%';
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateProgress);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateProgress();
 })();
