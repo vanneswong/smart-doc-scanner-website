@@ -20,6 +20,11 @@
 - [部署指南](https://smartscanner.zynotes.cn/deploy.html)
 - [HTTP API](https://smartscanner.zynotes.cn/api.html)
 - [说明与限制](https://smartscanner.zynotes.cn/notes.html)
+- [新闻与文章](https://smartscanner.zynotes.cn/news.html)
+
+## 文章
+
+- [把手机拍的文档变成扫描件：一个能自己部署的扫描服务](https://smartscanner.zynotes.cn/articles/mobile-doc-to-scanner.html)：围绕 v0.4.2 的深度长文，讲清手机拍照文档厅歪、暗、乱的原因，以及自动找边、透视校正、两层估计去阴影、白底扫描、去彩色手写、多页排序与 PDF / ZIP 导出、Docker 自托管部署。
 
 ## 核心功能
 

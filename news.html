@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>新闻与文章 - 智能文档扫描 Smart Document Scanner</title>
+  <meta name="description" content="智能文档扫描的新闻与文章列表：围绕 v0.4.2 的深度长文，讲清手机拍文档为何总是歪、暗、乱，以及多阈值 Canny 自动找边、四点透视校正、「闭运算 + 网格白平衡」两层估计去阴影、白底扫描、去彩色手写、多页拖动排序与 PDF / ZIP 导出，并附原图与扫描件实测对比和 Docker 自托管部署步骤。">
+  <meta name="keywords" content="智能文档扫描新闻,文档扫描文章,手机扫描文档,自托管扫描服务,白底扫描,去阴影算法,Docker 部署,扫描效果对比">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="vanneseong">
+  <link rel="canonical" href="https://smartscanner.zynotes.cn/news.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="智能文档扫描 Smart Document Scanner">
+  <meta property="og:title" content="新闻与文章 - 智能文档扫描 Smart Document Scanner">
+  <meta property="og:description" content="智能文档扫描的新闻与文章列表：围绕 v0.4.2 的深度长文，讲清手机拍文档为何总是歪、暗、乱，以及多阈值 Canny 自动找边、四点透视校正、「闭运算 + 网格白平衡」两层估计去阴影、白底扫描、去彩色手写、多页拖动排序与 PDF / ZIP 导出，并附原图与扫描件实测对比和 Docker 自托管部署步骤。">
+  <meta property="og:url" content="https://smartscanner.zynotes.cn/news.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://smartscanner.zynotes.cn/articles/images/01-cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="新闻与文章 - 智能文档扫描 Smart Document Scanner">
+  <meta name="twitter:description" content="智能文档扫描的新闻与文章列表：围绕 v0.4.2 的深度长文，讲清手机拍文档为何总是歪、暗、乱，以及多阈值 Canny 自动找边、四点透视校正、「闭运算 + 网格白平衡」两层估计去阴影、白底扫描、去彩色手写、多页拖动排序与 PDF / ZIP 导出，并附原图与扫描件实测对比和 Docker 自托管部署步骤。">
+  <meta name="twitter:image" content="https://smartscanner.zynotes.cn/articles/images/01-cover.jpg">
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://smartscanner.zynotes.cn/news.html#webpage",
+        "url": "https://smartscanner.zynotes.cn/news.html",
+        "name": "新闻与文章 - 智能文档扫描 Smart Document Scanner",
+        "description": "智能文档扫描的新闻与文章列表：围绕 v0.4.2 的深度长文，讲清手机拍文档为何总是歪、暗、乱，以及多阈值 Canny 自动找边、四点透视校正、「闭运算 + 网格白平衡」两层估计去阴影、白底扫描、去彩色手写、多页拖动排序与 PDF / ZIP 导出，并附原图与扫描件实测对比和 Docker 自托管部署步骤。",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "https://smartscanner.zynotes.cn/#website" },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://smartscanner.zynotes.cn/articles/mobile-doc-to-scanner.html",
+              "name": "把手机拍的文档变成扫描件：一个能自己部署的扫描服务"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://smartscanner.zynotes.cn/" },
+          { "@type": "ListItem", "position": 2, "name": "新闻", "item": "https://smartscanner.zynotes.cn/news.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================= Nav ======================= -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+        <a href="news.html" class="active" aria-current="page">新闻</a>
+      </nav>
+      <a class="btn small primary" href="https://scanner.zynotes.cn/" target="_blank" rel="noopener">在线使用</a>
+      <a class="btn small ghost" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= Page Hero ======================= -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="index.html">首页</a><span class="sep">/</span><span>新闻</span>
+        </nav>
+        <h1>新闻与文章</h1>
+        <p class="lead">围绕智能文档扫描的版本动态、实现思路与实测对比，记录这个自托管扫描服务是怎么一步步做出来的。</p>
+      </div>
+    </section>
+
+    <!-- ======================= News list ======================= -->
+    <section class="section" id="news">
+      <div class="news-list">
+
+        <article class="news-item">
+          <a class="news-cover" href="articles/mobile-doc-to-scanner.html" aria-hidden="true" tabindex="-1">
+            <img src="articles/images/01-cover.jpg" alt="手机照片变成标准扫描件的效果封面" loading="lazy" width="1600" height="681">
+          </a>
+          <div class="news-main">
+            <div class="news-meta">
+              <span class="news-tag">深度长文</span>
+              <time datetime="2026-11-28">2026 年 11 月 28 日</time>
+              <span>vanneswong</span>
+              <span>约 15 分钟阅读</span>
+            </div>
+            <h2><a href="articles/mobile-doc-to-scanner.html">把手机拍的文档变成扫描件：一个能自己部署的扫描服务</a></h2>
+            <p class="news-excerpt">
+              手机拍文档，真正的问题不是清晰度，而是歪、暗、乱。这篇文章围绕 v0.4.2 讲清完整实现：
+              多阈值 Canny 自动找边、四点透视拉正、「闭运算 + 20×20 网格白平衡」两层估计去阴影、
+              中值背景减除的白底扫描、局部色度 top-hat 去彩色手写，以及多页拖动排序、PDF / ZIP 导出与一个容器完成的自托管部署，并附带原图与扫描件的实测对比。
+            </p>
+            <a class="news-more" href="articles/mobile-doc-to-scanner.html">阅读全文 →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="section-more">
+        <a class="btn primary" href="https://scanner.zynotes.cn/" target="_blank" rel="noopener">在线试用</a>
+        <a class="btn ghost" href="deploy.html">自己部署一份</a>
+      </div>
+    </section>
+
+    <!-- ======================= CTA ======================= -->
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>让每一张照片，都成为一份正式文档</h2>
+        <p>开源 · 自托管 · 隐私安全。克隆仓库，即刻开始。</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="https://scanner.zynotes.cn/" target="_blank" rel="noopener">立即使用</a>
+          <a class="btn ghost on-dark" href="https://github.com/vanneswong/smart-doc-scanner" target="_blank" rel="noopener">访问 GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= Footer ======================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/>
+            <path d="M7 12h10M9 9h6M9 15h6"/>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>智能文档扫描</strong>
+          <span>SMART DOCUMENT SCANNER</span>
+        </span>
+      </div>
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="index.html">首页</a>
+        <a href="features.html">功能</a>
+        <a href="pipeline.html">处理管线</a>
+        <a href="deploy.html">部署</a>
+        <a href="api.html">API</a>
+        <a href="notes.html">说明</a>
+        <a href="news.html">新闻</a>
+      </nav>
+      <p>OpenCV 边缘检测 · 透视变换 · 自适应阈值 · 所有图片仅在本机临时保存</p>
+      <p class="copyright">
+        © 2026 <a href="https://github.com/vanneswong" target="_blank" rel="noopener">vanneseong</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/vanneswong" target="_blank" rel="noopener">https://github.com/vanneswong</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
