@@ -433,6 +433,17 @@ def build_page(md_path: Path) -> Path:
 
 {FOOTER}
 
+  <!-- 百度统计 -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {{
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd2719ba4c3975b36cbf6042f6fdc3d3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    }})();
+  </script>
+
   <script src="../app.js"></script>
 </body>
 </html>
